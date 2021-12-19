@@ -13,8 +13,8 @@ function App() {
   const [isVisible, setIsVisible] = useState(false)
   return (
     <React.Fragment>
-      <Header/>
       <Router>
+      <Header/>
         <Routes>
           <Route exact path="/" element={<Home/>} />
         </Routes>

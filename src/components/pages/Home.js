@@ -19,7 +19,7 @@ function Home() {
             with the help of our ML ChatBot Prediction. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
           </p>
           <a href="https://wa.link/8l9pou">
-            <button class="btn-style btn btn-primary">Read More</button>
+            <button className="btn-style btn btn-primary">Read More</button>
           </a>
         </div>
         <div className="col-lg-6 m-auto">
