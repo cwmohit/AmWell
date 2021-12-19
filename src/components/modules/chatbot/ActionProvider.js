@@ -15,6 +15,40 @@ class ActionProvider {
       this.updateChatbotState(message);
     };
 
+    handleFirstQuestion = (txt) => {
+      const message = this.createChatBotMessage(
+        txt==="My Self" ? "Tell me your age:" : "Tell me his/her age:",
+      );
+  
+      this.updateChatbotState(message);
+    };
+
+    handleSecondQuestion = () => {
+      const message = this.createChatBotMessage(
+        "Tell me your gender?"
+      );
+  
+      this.updateChatbotState(message);
+    }
+    
+
+    NotFound = (txt) => {
+      const message = this.createChatBotMessage(
+        "I'm sorry, I have no information on about "+txt
+      );
+  
+      this.updateChatbotState(message);
+    }
+
+    handleLastQuestion = () => {
+      const message = this.createChatBotMessage(
+        "Thanks for connecting!!"
+      );
+  
+      this.updateChatbotState(message);
+    }
+
+
     greet() {
       const greetingMessage = this.createChatBotMessage("Hi, friend.")
       this.updateChatbotState(greetingMessage)

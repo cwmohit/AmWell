@@ -2,11 +2,8 @@ import React from "react";
 
 const LearningOptions = (props) => {
   const options = [
-    { text: "Javascript", handler: props.actionProvider.handleJavascriptList, id: 1 },
-    { text: "Data visualization", handler: () => {}, id: 2 },
-    { text: "APIs", handler: () => {}, id: 3 },
-    { text: "Security", handler: () => {}, id: 4 },
-    { text: "Interview prep", handler: () => {}, id: 5 },
+    { text: "Myself", handler: () => props.actionProvider.handleFirstQuestion("My Self"), id: 1 },
+    { text: "Someone else", handler: () => props.actionProvider.handleFirstQuestion("Someone"), id: 2 },
   ];
 
   const optionsMarkup = options.map((option) => (

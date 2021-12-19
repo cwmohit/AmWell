@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Chatbot from 'react-chatbot-kit'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import ActionProvider from "./components/modules/ActionProvider";
-import config from "./components/modules/Config";
-import MessageParser from "./components/modules/MessageParser";
+import ActionProvider from "./components/modules/chatbot/ActionProvider";
+import config from "./components/modules/chatbot/Config";
+import MessageParser from "./components/modules/chatbot/MessageParser";
 import ChatImage from "./assets/chatbot.png";
 import "./App.css";
 import Header from "./components/layout/Header";

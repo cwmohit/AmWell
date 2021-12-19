@@ -1,6 +1,6 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 import LearningOptions from "./Learning/Option";
-import ChatImage from "../../assets/chatbot.png";
+import ChatImage from "../../../assets/chatbot.png";
 import LinkList from "./Learning/LinkList";
 const config = {
   initialMessages: [
