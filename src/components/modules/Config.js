@@ -8,6 +8,15 @@ const config = {
       widget: "learningOptions",
     }),
   ],
+  customStyles: {
+    // botMessageBox: {
+    //   backgroundColor: "#28334AFF"
+    // },
+    chatButton: {
+      backgroundColor: "white",
+      color: "white"
+    }
+  },
   customComponents: {
     header: () => (
       <div className="react-chatbot-kit-chat-header">

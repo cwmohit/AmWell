@@ -7,15 +7,21 @@
 }
 
 :root {
-    --red-theme: rgb(210, 63, 87);
-    --white: #ffffff;
-    --black: rgb(55, 63, 80);
-    --gray: rgb(125, 135, 156);
+    --red-theme: #F05454;
+    --white: #fff;
+    --black: #121212;
+    --gray: #F5F5F5;
+    --primary: #30475E;
   }
 
 .container{
     width: 90%;
     margin: auto;
+}
+
+.min-height-80{
+ min-height: 80vh;
+ height: auto;
 }
 
 .w-0{
