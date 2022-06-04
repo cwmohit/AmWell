@@ -13,6 +13,7 @@ function CardDesc(props) {
         <img
           className="bg-light shadow-sm mx-auto"
           src={props?.img}
+          alt="doctor"
           style={{
             width: "80%",
             height: "300px",
