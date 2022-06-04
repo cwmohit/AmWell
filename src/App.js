@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Chatbot from "react-chatbot-kit";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import ActionProvider from "./components/modules/chatbot/ActionProvider";
 import config from "./components/modules/chatbot/Config";
 import MessageParser from "./components/modules/chatbot/MessageParser";
@@ -12,9 +17,11 @@ import Footer from "./components/layout/Footer";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import About from "./components/pages/About";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
+  const { currentUser } = useAuth();
   return (
     <React.Fragment>
       <Router>
@@ -23,7 +30,11 @@ function App() {
           <Route exact path="/" element={<Home />} />
         </Routes>
         <Routes>
-          <Route exact path="/login" element={<Login />} />
+          <Route
+            exact
+            path="/login"
+            element={currentUser ? <Navigate to="/" /> : <Login />}
+          />
         </Routes>
         <Routes>
           <Route exact path="/about" element={<About />} />

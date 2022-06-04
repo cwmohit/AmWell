@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Amwell from "../../assets/amwell.jpeg";
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
+  const { login } = useAuth();
+  const [loading, setLoading] = useState(false);
+  const [alert, setAlert] = useState("");
+  const navigate = useNavigate();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      setLoading(true);
+      const { email, password } = e.target;
+      await login(email.value.trim(), password.value.trim());
+      setLoading(false);
+      navigate("/");
+    } catch (error) {
+      setAlert("email or password is incorrect");
+    }
+  };
+
   return (
     <main
       class="form-signin row"
@@ -12,6 +32,7 @@ function Login() {
       }}
     >
       <form
+        onSubmit={onSubmit}
         className="col-md-4 col-12"
         style={{
           display: "flex",
@@ -21,11 +42,13 @@ function Login() {
         }}
       >
         <img class="mb-4" src={Amwell} alt="" width="100" />
+        {alert && <div class="alert alert-danger">{alert}</div>}
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
         <div class="form-floating">
           <input
             type="email"
+            name="email"
             class="form-control"
             id="floatingInput"
             placeholder="name@example.com"
@@ -34,6 +57,7 @@ function Login() {
         </div>
         <div class="form-floating">
           <input
+            name="password"
             type="password"
             class="form-control"
             id="floatingPassword"
@@ -47,7 +71,11 @@ function Login() {
             <input type="checkbox" value="remember-me" /> Remember me
           </label>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">
+        <button
+          disabled={loading}
+          class="w-100 btn btn-lg btn-primary"
+          type="submit"
+        >
           Sign in
         </button>
       </form>

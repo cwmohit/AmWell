@@ -1,7 +1,18 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./index.css";
 function Header() {
+  const { currentUser, logout } = useAuth();
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      alert("failed to logout");
+    }
+  };
   return (
     <div className="container-fluid amwell-header">
       <div className="row">
@@ -40,16 +51,29 @@ function Header() {
                     About
                   </NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink to="/login" className="nav-link text-gray-b">
-                    Login
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/register" className="nav-link text-gray-b">
-                    Register
-                  </NavLink>
-                </li>
+                {currentUser ? (
+                  <li className="nav-item">
+                    <span
+                      onClick={handleLogout}
+                      className="nav-link text-gray-b"
+                    >
+                      Logout
+                    </span>
+                  </li>
+                ) : (
+                  <>
+                    <li className="nav-item">
+                      <NavLink to="/login" className="nav-link text-gray-b">
+                        Login
+                      </NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink to="/register" className="nav-link text-gray-b">
+                        Register
+                      </NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           </nav>
