@@ -11,6 +11,7 @@ import Home from "./components/pages/Home";
 import Footer from "./components/layout/Footer";
 import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
+import About from "./components/pages/About";
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
@@ -25,6 +26,9 @@ function App() {
           <Route exact path="/login" element={<Login />} />
         </Routes>
         <Routes>
+          <Route exact path="/about" element={<About />} />
+        </Routes>
+        <Routes>
           <Route exact path="/register" element={<Register />} />
         </Routes>
         <Footer />
@@ -32,6 +36,12 @@ function App() {
       <button
         onClick={() => setIsVisible(!isVisible)}
         className="btn chatbot-toggle"
+        style={{
+          width: "55px",
+          height: "55px",
+          padding: "0",
+          boxShadow: "0 0 0 0.25rem rgb(13 110 253 / 25%)",
+        }}
       >
         <img style={{ width: "55px" }} src={ChatImage} alt="chatbot" />
       </button>

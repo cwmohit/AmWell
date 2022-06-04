@@ -1,5 +1,59 @@
 import React from "react";
 import CardDesc from "../common/CardDesc";
+
+const doctors = [
+  {
+    id: 1,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 2,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 3,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 4,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 5,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 6,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 7,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 8,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 9,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+  {
+    id: 10,
+    img: "https://c.ndtvimg.com/2021-12/n4mbh6o8_doctor-strange-in-the-multiverse-of-madness_625x300_23_December_21.jpg?im=Resize=(1230,900)",
+    contact: "9785757583",
+  },
+];
+
 function Home() {
   return (
     <div className="container-fluid Home-page">
@@ -11,14 +65,14 @@ function Home() {
               And an even wittier subheading to boot. Jumpstart your marketing
               efforts with this example based on Apple’s marketing pages.
             </p>
-            <form class="d-flex">
+            <form className="d-flex">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search your disease"
                 aria-label="Search"
               />
-              <button class="btn btn-light" type="submit">
+              <button className="btn btn-light" type="submit">
                 Search
               </button>
             </form>
@@ -27,8 +81,8 @@ function Home() {
           <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
         <div className="row">
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item, i) => (
-            <CardDesc />
+          {doctors.map((item, i) => (
+            <CardDesc key={i} {...item} />
           ))}
         </div>
       </main>
