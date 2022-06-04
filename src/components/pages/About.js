@@ -12,7 +12,7 @@ function About() {
           <article className="blog-post">
             <h2 className="blog-post-title">Sample blog post</h2>
             <p className="blog-post-meta">
-              January 1, 2021 by <a href="#">Mark</a>
+              January 1, 2021 by <a href="/">Mark</a>
             </p>
 
             <p>
@@ -171,7 +171,7 @@ function About() {
           <article className="blog-post">
             <h2 className="blog-post-title">Another blog post</h2>
             <p className="blog-post-meta">
-              December 23, 2020 by <a href="#">Jacob</a>
+              December 23, 2020 by <a href="/">Jacob</a>
             </p>
 
             <p>
@@ -240,7 +240,7 @@ function About() {
           <article className="blog-post">
             <h2 className="blog-post-title">New feature</h2>
             <p className="blog-post-meta">
-              December 14, 2020 by <a href="#">Chris</a>
+              December 14, 2020 by <a href="/">Chris</a>
             </p>
 
             <p>
@@ -263,12 +263,12 @@ function About() {
           </article>
 
           <nav className="blog-pagination" aria-label="Pagination">
-            <a className="btn btn-outline-primary" href="#">
+            <a className="btn btn-outline-primary" href="/">
               Older
             </a>
             <a
               className="btn btn-outline-secondary disabled"
-              href="#"
+              href="/"
               tabindex="-1"
               aria-disabled="true"
             >
@@ -289,58 +289,16 @@ function About() {
             </div>
 
             <div className="p-4">
-              <h4 className="fst-italic">Archives</h4>
-              <ol className="list-unstyled mb-0">
-                <li>
-                  <a href="#">March 2021</a>
-                </li>
-                <li>
-                  <a href="#">February 2021</a>
-                </li>
-                <li>
-                  <a href="#">January 2021</a>
-                </li>
-                <li>
-                  <a href="#">December 2020</a>
-                </li>
-                <li>
-                  <a href="#">November 2020</a>
-                </li>
-                <li>
-                  <a href="#">October 2020</a>
-                </li>
-                <li>
-                  <a href="#">September 2020</a>
-                </li>
-                <li>
-                  <a href="#">August 2020</a>
-                </li>
-                <li>
-                  <a href="#">July 2020</a>
-                </li>
-                <li>
-                  <a href="#">June 2020</a>
-                </li>
-                <li>
-                  <a href="#">May 2020</a>
-                </li>
-                <li>
-                  <a href="#">April 2020</a>
-                </li>
-              </ol>
-            </div>
-
-            <div className="p-4">
               <h4 className="fst-italic">Elsewhere</h4>
               <ol className="list-unstyled">
                 <li>
-                  <a href="#">GitHub</a>
+                  <a href="/">GitHub</a>
                 </li>
                 <li>
-                  <a href="#">Twitter</a>
+                  <a href="/">Twitter</a>
                 </li>
                 <li>
-                  <a href="#">Facebook</a>
+                  <a href="/">Facebook</a>
                 </li>
               </ol>
             </div>
