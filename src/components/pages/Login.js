@@ -19,6 +19,7 @@ function Login() {
       navigate("/");
     } catch (error) {
       setAlert("email or password is incorrect");
+      setLoading(false);
     }
   };
 
