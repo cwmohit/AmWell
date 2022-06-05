@@ -4,7 +4,7 @@ import Amwell from "../../assets/amwell.jpeg";
 import { useAuth } from "../../context/AuthContext";
 
 function Login() {
-  const { login } = useAuth();
+  const { login, resetPassword } = useAuth();
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState("");
   const navigate = useNavigate();
@@ -20,6 +20,18 @@ function Login() {
     } catch (error) {
       setAlert("email or password is incorrect");
       setLoading(false);
+    }
+  };
+
+  const onForgotPassword = async () => {
+    let email = prompt("Please enter your email", "");
+    if (email.trim() != null) {
+      try {
+        await resetPassword(email.trim());
+        window.alert("Password reset email sent");
+      } catch (error) {
+        setAlert(error.message);
+      }
     }
   };
 
@@ -79,6 +91,12 @@ function Login() {
         >
           Sign in
         </button>
+        <p
+          onClick={onForgotPassword}
+          className="text-center mt-3 cursor-pointer"
+        >
+          Forgot Password?
+        </p>
       </form>
     </main>
   );
