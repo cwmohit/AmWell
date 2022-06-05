@@ -50,9 +50,7 @@ class ActionProvider {
         const result = await response.json();
         let message;
         if (!result.error) {
-          message = this.createChatBotMessage(
-            item + " is because of " + result.data
-          );
+          message = this.createChatBotMessage("you might have " + result.data);
         } else {
           message = this.createChatBotMessage(
             "I'm sorry, I have no information on about " + item
