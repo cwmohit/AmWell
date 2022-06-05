@@ -1,1 +1,1 @@
-web: gunicorn diseasePrediction:app
+web: gunicorn diseaseprediction:app
