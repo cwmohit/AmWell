@@ -64,7 +64,7 @@ symptom_index = {}
 for index, value in enumerate(symptoms):
     symptom = " ".join([i.capitalize() for i in value.split("_")])
     symptom_index[symptom] = index
-    print(index," ",value," ",symptom)
+    
 
 
 
@@ -126,4 +126,4 @@ def sum_of_array():
     return json.dumps({"result":result})
    
 if __name__ == "__main__": 
-    app.run(port=5000)
+    app.run()
