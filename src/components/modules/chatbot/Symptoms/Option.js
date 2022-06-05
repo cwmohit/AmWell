@@ -20,7 +20,7 @@ const SymptomsOptions = (props) => {
 
   useEffect(() => {
     getSymptoms();
-  }, []);
+  });
 
   const optionsMarkup = symptoms?.map((option) => (
     <button
