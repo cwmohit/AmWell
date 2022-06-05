@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 4001;
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
@@ -16,15 +16,15 @@ app.get("/", (req, res) => {
   res.send("hello portfoli api");
 });
 
-const CONNECTION_URL =
-  "mongodb+srv://Amwell:Admin%40123@cluster0.mkfal.mongodb.net/?retryWrites=true&w=majority";
+// const CONNECTION_URL =
+//   "mongodb+srv://Amwell:Admin%40123@cluster0.mkfal.mongodb.net/?retryWrites=true&w=majority";
 
 app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
-mongoose
-  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
-  })
-  .catch((e) => {
-    console.log(e.message);
-  });
+// mongoose
+//   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => {
+//     app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
+//   })
+//   .catch((e) => {
+//     console.log(e.message);
+//   });

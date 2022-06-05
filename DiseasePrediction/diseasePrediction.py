@@ -11,6 +11,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestNeighbors
+import json
 
 data = pd.read_csv("./Training.csv").dropna(axis=1)
 disease_counts = data["prognosis"].value_counts()
@@ -45,9 +46,9 @@ test_Y = encoder.transform(test_data.iloc[:, -1])
 
 # Making prediction by take mode of predictions
 # made by all the classifiers
-svm_preds = final_svm_model.predict(test_X)
-nb_preds = final_nb_model.predict(test_X)
-rf_preds = final_rf_model.predict(test_X)
+svm_preds = final_svm_model.predict(test_X)#export 
+nb_preds = final_nb_model.predict(test_X)#export 
+rf_preds = final_rf_model.predict(test_X)#export 
 
 final_preds = [mode([i,j,k])[0][0] for i,j,
 			k in zip(svm_preds, nb_preds, rf_preds)]
@@ -101,4 +102,28 @@ def predictDisease(symptoms):
 	return final_prediction
 
 # Testing the function
-print(predictDisease("Itching,Skin Rash,Burning Micturition,Inflammatory Nails"))
+
+from flask import Flask, request
+import json 
+   
+# Setup flask server
+app = Flask(__name__) 
+  
+# Setup url route which will calculate
+# total sum of array.
+@app.route('/predict-diagnosis', methods = ['POST']) 
+def sum_of_array(): 
+    data = request.get_json() 
+    print(data)
+  
+    # Data variable contains the 
+    # data from the node server
+    ls = data['array'] 
+    print(ls)
+    result = predictDisease(ls) # calculate the sum
+  
+    # Return data in json format 
+    return json.dumps({"result":result})
+   
+if __name__ == "__main__": 
+    app.run(port=5000)
