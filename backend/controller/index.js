@@ -36,7 +36,7 @@ const predictDiagnosis = async (req, res) => {
       //   console.log("Sum of Array from Python: ", result);
     })
     .catch(function (err) {
-      console.log(err);
+      res.status(500).json({ error: "Not Found" });
     });
 };
 

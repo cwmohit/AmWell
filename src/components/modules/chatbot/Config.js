@@ -2,20 +2,21 @@ import { createChatBotMessage } from "react-chatbot-kit";
 import LearningOptions from "./Learning/Option";
 import ChatImage from "../../../assets/chatbot.png";
 import LinkList from "./Learning/LinkList";
+import SymptomsOptions from "./Symptoms/Option";
 const config = {
   initialMessages: [
-    createChatBotMessage("AmWell provides a general symptom assessment, Tell me How can i help you?", {
-      widget: "learningOptions",
-    }),
+    createChatBotMessage(
+      "AmWell provides a general symptom assessment, Tell me How can i help you?",
+      {
+        widget: "learningOptions",
+      }
+    ),
   ],
   customStyles: {
-    // botMessageBox: {
-    //   backgroundColor: "#28334AFF"
-    // },
     chatButton: {
       backgroundColor: "white",
-      color: "white"
-    }
+      color: "white",
+    },
   },
   customComponents: {
     header: () => (
@@ -23,7 +24,9 @@ const config = {
         Conversation with AmWell
       </div>
     ),
-    botAvatar: (props) => <img src={ChatImage} className="chatbot-message-avtar" alt="chatbot"/>,
+    botAvatar: (props) => (
+      <img src={ChatImage} className="chatbot-message-avtar" alt="chatbot" />
+    ),
   },
   widgets: [
     {
@@ -31,29 +34,8 @@ const config = {
       widgetFunc: (props) => <LearningOptions {...props} />,
     },
     {
-        widgetName: "javascriptLinks",
-        widgetFunc: (props) => <LinkList {...props} />,
-        props: {
-            options: [
-              {
-                text: "Introduction to JS",
-                url:
-                  "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/",
-                id: 1,
-              },
-              {
-                text: "Mozilla JS Guide",
-                url:
-                  "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide",
-                id: 2,
-              },
-              {
-                text: "Frontend Masters",
-                url: "https://frontendmasters.com",
-                id: 3,
-              },
-            ],
-        },
+      widgetName: "symptomsLinks",
+      widgetFunc: (props) => <SymptomsOptions {...props} />,
     },
   ],
 };

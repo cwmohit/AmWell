@@ -5,7 +5,16 @@ const router = express.Router();
 // Apis
 router.get("/get-symptoms", (req, res) => {
   console.log("ddd", req.body);
-  res.json({ symptoms: ["fever", "cough", "sore throat"] });
+  res.json({
+    symptoms: [
+      "Itching",
+      "Skin Rash",
+      "Nodal Skin Eruptions",
+      "Continuous Sneezing",
+      "Headache",
+      "Mild Fever",
+    ],
+  });
 });
 
 router.post("/get-diagnosis", controller.predictDiagnosis);
