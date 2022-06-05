@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 const SymptomsOptions = (props) => {
   const [symptoms, setSymptoms] = useState([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getSymptoms = async () => {
     try {
       const response = await fetch("http://localhost:4001/api/get-symptoms");
@@ -20,7 +21,8 @@ const SymptomsOptions = (props) => {
 
   useEffect(() => {
     getSymptoms();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const optionsMarkup = symptoms?.map((option) => (
     <button
