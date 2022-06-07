@@ -2,7 +2,8 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./index.css";
-function Header() {
+function Header({ setModalVisible }) {
+  const login_by = localStorage.getItem("login_by");
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = async () => {
@@ -13,6 +14,7 @@ function Header() {
       alert("failed to logout");
     }
   };
+
   return (
     <div className="container-fluid amwell-header">
       <div className="row">
@@ -73,6 +75,13 @@ function Header() {
                       </NavLink>
                     </li>
                   </>
+                )}
+                {login_by === "doctor" && currentUser && (
+                  <li className="nav-item m-auto">
+                    <button onClick={setModalVisible} className="btn btn-light">
+                      Update Profile
+                    </button>
+                  </li>
                 )}
               </ul>
             </div>

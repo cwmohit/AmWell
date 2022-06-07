@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chatbot from "react-chatbot-kit";
 import {
   BrowserRouter as Router,
@@ -18,16 +18,64 @@ import Login from "./components/pages/Login";
 import Register from "./components/pages/Register";
 import About from "./components/pages/About";
 import { useAuth } from "./context/AuthContext";
+import DoctorModal from "./components/modules/DoctorModal";
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [profile, setProfile] = useState(null);
   const { currentUser } = useAuth();
+  const [symptoms, setSymptoms] = useState([]);
+  // get symptoms list
+  const getSymptoms = async () => {
+    try {
+      const response = await fetch("http://localhost:4001/api/symptoms");
+      const result = await response.json();
+      setSymptoms(result?.symptoms);
+    } catch (error) {
+      console.log(error, "eeerrr");
+    }
+  };
+
+  const getDoctor = async (email) => {
+    try {
+      const response = await fetch(
+        `http://localhost:4001/api/get-doctor/${email}`
+      );
+      const result = await response.json();
+      if (result?.doctor === null) {
+        setModalVisible(true);
+        setIsVisible(false);
+      } else {
+        setProfile(result?.doctor);
+      }
+    } catch (error) {
+      console.log(error, "hey");
+    }
+  };
+
+  const handleOk = () => {
+    setModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setModalVisible(false);
+  };
+
+  useEffect(() => {
+    getSymptoms();
+    const login_by = localStorage.getItem("login_by");
+    if (currentUser && login_by === "doctor") {
+      getDoctor(currentUser?.email);
+    }
+  }, [currentUser]);
+
   return (
     <React.Fragment>
       <Router>
-        <Header />
+        <Header setModalVisible={setModalVisible} />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/" element={<Home symptoms={symptoms} />} />
         </Routes>
         <Routes>
           <Route
@@ -65,6 +113,13 @@ function App() {
           />
         </div>
       )}
+      <DoctorModal
+        modalVisible={modalVisible}
+        handleCancel={handleCancel}
+        handleOk={handleOk}
+        symptoms={symptoms}
+        profile={profile}
+      />
     </React.Fragment>
   );
 }

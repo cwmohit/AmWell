@@ -6,23 +6,27 @@ function CardDesc(props) {
       <div className="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
         <div className="my-3 py-3">
           <h2 style={{ color: "white" }} className="display-5">
-            Doctor strange
+            {props?.name}
           </h2>
-          <p className="lead">COVID 19</p>
+          <p className="lead">Expertise - {props?.symptoms.join(", ")}</p>
         </div>
-        <img
-          className="bg-light shadow-sm mx-auto"
-          src={props?.img}
+        <div
+          className="bg-light shadow-sm mx-auto text-dark rounded p-3"
           alt="doctor"
           style={{
             width: "80%",
-            height: "300px",
+            height: "200px",
             borderRadius: "21px 21px 0 0",
           }}
-        />
+        >
+          <p>Email - {props?.email}</p>
+          <p>Address - {props?.address}</p>
+          <p>City - {props?.city}</p>
+          <p>State - {props?.state}</p>
+        </div>
         <div class="d-grid gap-2 my-3">
           <button type="button" class="btn btn-light d-block">
-            Contact
+            Contact - {props?.phone}
           </button>
         </div>
       </div>
