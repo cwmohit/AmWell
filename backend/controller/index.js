@@ -22,7 +22,7 @@ const predictDiagnosis = async (req, res) => {
     json: true,
   };
 
-  var sendrequest = await request(options)
+  await request(options)
     // The parsedBody contains the data
     // sent back from the Flask server
     .then(function (parsedBody) {
