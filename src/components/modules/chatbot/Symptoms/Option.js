@@ -6,7 +6,7 @@ const SymptomsOptions = (props) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const getSymptoms = async () => {
     try {
-      const response = await fetch("http://localhost:4001/api/get-symptoms");
+      const response = await fetch("http://localhost:4001/api/symptoms");
       const result = await response.json();
       const data = result?.symptoms?.map((item, i) => ({
         text: item,
