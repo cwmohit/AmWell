@@ -3,6 +3,12 @@ Web Based Chatbot for disease prediction using machine learning.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Demo 
+
+https://user-images.githubusercontent.com/65109464/172498375-3dbb3fee-672a-4d00-be0e-e2f6adb2713e.mov
+
+https://user-images.githubusercontent.com/65109464/172498192-8c90e7f2-233f-4b8b-b7db-b82336e6a133.mov
+
 ## Available Scripts
 
 In the project directory, you can run:
