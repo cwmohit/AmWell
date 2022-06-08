@@ -24,6 +24,7 @@ function App() {
   const [isVisible, setIsVisible] = useState(true);
   const [modalVisible, setModalVisible] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [doctors, setDoctors] = useState([]);
   const { currentUser } = useAuth();
   const [symptoms, setSymptoms] = useState([]);
   // get symptoms list
@@ -34,6 +35,21 @@ function App() {
       setSymptoms(result?.symptoms);
     } catch (error) {
       console.log(error, "eeerrr");
+    }
+  };
+
+  const getDoctors = async () => {
+    try {
+      const response = await fetch("http://localhost:4001/api/get-doctors", {
+        method: "GET", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const result = await response.json();
+      setDoctors(result?.doctors);
+    } catch (error) {
+      console.log("Something went wrong");
     }
   };
 
@@ -64,6 +80,7 @@ function App() {
 
   useEffect(() => {
     getSymptoms();
+    getDoctors();
     const login_by = localStorage.getItem("login_by");
     if (currentUser && login_by === "doctor") {
       getDoctor(currentUser?.email);
@@ -75,7 +92,17 @@ function App() {
       <Router>
         <Header setModalVisible={setModalVisible} />
         <Routes>
-          <Route exact path="/" element={<Home symptoms={symptoms} />} />
+          <Route
+            exact
+            path="/"
+            element={
+              <Home
+                symptoms={symptoms}
+                doctors={doctors}
+                setDoctors={setDoctors}
+              />
+            }
+          />
         </Routes>
         <Routes>
           <Route
@@ -119,6 +146,7 @@ function App() {
         handleOk={handleOk}
         symptoms={symptoms}
         profile={profile}
+        getDoctors={getDoctors}
       />
     </React.Fragment>
   );

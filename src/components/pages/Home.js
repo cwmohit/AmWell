@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CardDesc from "../common/CardDesc";
 import Amwell from "../../assets/amwell.jpeg";
 import { Button, Col, Form, Row, Select } from "antd";
 const { Option } = Select;
 
-function Home({ symptoms }) {
+function Home({ symptoms, doctors, setDoctors }) {
   const [result, setResult] = useState("");
-  const [doctors, setDoctors] = useState([]);
   // get diagnosis
   const onHandleSubmit = async (values) => {
     console.log(values, "shsh");
@@ -42,26 +41,6 @@ function Home({ symptoms }) {
       console.log(error);
     }
   };
-
-  const getDoctors = async () => {
-    try {
-      const response = await fetch("http://localhost:4001/api/get-doctors", {
-        method: "GET", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const result = await response.json();
-      setDoctors(result?.doctors);
-      console.log(result, "result");
-    } catch (error) {
-      console.log("Something went wrong");
-    }
-  };
-
-  useEffect(() => {
-    getDoctors();
-  }, []);
 
   return (
     <div className="container-fluid Home-page">

@@ -9,6 +9,7 @@ function DoctorModal({
   handleCancel,
   symptoms,
   profile,
+  getDoctors,
 }) {
   const { currentUser } = useAuth();
 
@@ -31,6 +32,7 @@ function DoctorModal({
           body: JSON.stringify(values),
         });
       }
+      getDoctors();
       handleOk();
     } catch (error) {
       console.log(error);
