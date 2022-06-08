@@ -37,7 +37,6 @@ router.post("/get-diagnosis", controller.predictDiagnosis);
 router.post("/post-doctor", (req, res) => {
   const { name, email, phone, address, pincode, city, state, symptoms } =
     req.body;
-  console.log(name, email, phone, address, pincode, city, state, symptoms);
   const newDoctor = new Doctor({
     name,
     email,
@@ -117,19 +116,36 @@ router.get("/get-doctor/:email", (req, res) => {
 
 // get all doctors
 router.get("/get-doctors", (req, res) => {
-  Doctor.find()
-    .then((doctors) => {
-      res.json({
-        message: "Doctors found successfully",
-        doctors,
+  const { pincode } = req.query;
+  if (pincode) {
+    Doctor.find({ pincode })
+      .then((doctors) => {
+        res.json({
+          message: "Doctors found successfully",
+          doctors,
+        });
+      })
+      .catch((err) => {
+        res.json({
+          message: "Error in finding doctors",
+          error: err,
+        });
       });
-    })
-    .catch((err) => {
-      res.json({
-        message: "Error in finding doctors",
-        error: err,
+  } else {
+    Doctor.find()
+      .then((doctors) => {
+        res.json({
+          message: "Doctors found successfully",
+          doctors,
+        });
+      })
+      .catch((err) => {
+        res.json({
+          message: "Error in finding doctors",
+          error: err,
+        });
       });
-    });
+  }
 });
 
 // get doctor by symptoms

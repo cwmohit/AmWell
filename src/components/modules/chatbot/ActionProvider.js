@@ -1,3 +1,5 @@
+import { getDoctorsByPincode } from "../../../api/product";
+
 class ActionProvider {
   constructor(createChatBotMessage, setStateFunc) {
     this.createChatBotMessage = createChatBotMessage;
@@ -18,6 +20,34 @@ class ActionProvider {
     this.updateChatbotState(message);
   };
 
+  handleGetDoctorByPin = async (pincode) => {
+    const message = this.createChatBotMessage(
+      "Please wait while we are fetching the doctors near you."
+    );
+
+    this.updateChatbotState(message);
+
+    const doctors = await getDoctorsByPincode(pincode);
+
+    if (doctors.length > 0) {
+      const doctorNames = doctors.map((doctor) => doctor.name);
+      const doctorMobile = doctors.map((doctor) => doctor.phone);
+      const message = this.createChatBotMessage(
+        `We found ${doctors.length} doctors near you. ${doctorNames.join(
+          ", "
+        )} and their mobile numbers are: ${doctorMobile.join(", ")}`
+      );
+
+      this.updateChatbotState(message);
+    } else {
+      const message = this.createChatBotMessage(
+        "Sorry, we could not find any doctors near you."
+      );
+
+      this.updateChatbotState(message);
+    }
+  };
+
   NotFound = (txt) => {
     const message = this.createChatBotMessage(
       "I'm sorry, I have no information on about " + txt
@@ -26,7 +56,7 @@ class ActionProvider {
     this.updateChatbotState(message);
   };
 
-  handleLastQuestion = () => {
+  handleSymptomsQuestion = () => {
     const message = this.createChatBotMessage("Enter your symptoms!!", {
       widget: "symptomsLinks",
     });
@@ -36,6 +66,7 @@ class ActionProvider {
 
   handleSymptom = (item) => {
     const getDiagnosis = async () => {
+      let message;
       try {
         const response = await fetch(
           "http://localhost:4001/api/get-diagnosis",
@@ -48,7 +79,6 @@ class ActionProvider {
           }
         );
         const result = await response.json();
-        let message;
         if (!result.error) {
           message = this.createChatBotMessage("you might have " + result.data);
         } else {
@@ -56,16 +86,23 @@ class ActionProvider {
             "I'm sorry, I have no information on about " + item
           );
         }
-        this.updateChatbotState(message);
       } catch (error) {
-        const message = this.createChatBotMessage(
+        message = this.createChatBotMessage(
           "I'm sorry, I have no information on about " + item
         );
-        this.updateChatbotState(message);
       }
+      this.updateChatbotState(message);
+      message = this.createChatBotMessage("Enter Your Pincode");
+      this.updateChatbotState(message);
     };
 
     getDiagnosis();
+  };
+
+  handleEnterPin = () => {
+    const message = this.createChatBotMessage("Enter Your Pincode");
+
+    this.updateChatbotState(message);
   };
 
   greet() {
