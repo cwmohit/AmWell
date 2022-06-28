@@ -69,14 +69,7 @@ class ActionProvider {
       let message;
       try {
         const response = await fetch(
-          "http://localhost:4001/api/get-diagnosis",
-          {
-            method: "POST", // or 'PUT'
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ symptoms: item }),
-          }
+          "http://localhost:4001/api/get-diagnosis/?symptoms=" + item
         );
         const result = await response.json();
         if (!result.error) {
