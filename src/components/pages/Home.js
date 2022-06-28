@@ -11,13 +11,9 @@ function Home({ symptoms, doctors, setDoctors }) {
     console.log(values, "shsh");
     const data = values?.symptoms?.join(",");
     try {
-      const response = await fetch("http://localhost:4001/api/get-diagnosis", {
-        method: "POST", // or 'PUT'
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ symptoms: data }),
-      });
+      const response = await fetch(
+        `http://localhost:4001/api/get-diagnosis/?symptoms=${data}`
+      );
       const result = await response.json();
       getDoctorsBySymptoms(values?.symptoms);
       setResult(result?.data);
@@ -48,7 +44,7 @@ function Home({ symptoms, doctors, setDoctors }) {
         <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-white">
           <div className="col-md-5 p-lg-5 mx-auto my-5">
             <h1 className="display-4 fw-normal">
-              <img class="mb-4" src={Amwell} alt="" width="100" />
+              <img className="mb-4" src={Amwell} alt="" width="100" />
             </h1>
             <p className="lead fw-normal">
               AmWell provides a general symptom assessment tool to help you
@@ -84,10 +80,19 @@ function Home({ symptoms, doctors, setDoctors }) {
           <div className="product-device shadow-sm d-none d-md-block"></div>
           <div className="product-device product-device-2 shadow-sm d-none d-md-block"></div>
         </div>
-        <div className="row">
-          {doctors.map((item, i) => (
-            <CardDesc key={i} {...item} />
-          ))}
+
+        <div className="container-fluid mt-5 mb-5">
+          <div className="d-flex justify-content-between mb-3">
+            {" "}
+            <h2>Doctors</h2>{" "}
+          </div>
+          <div className="row g-4">
+            {doctors?.map((item, i) => (
+              <div className="col-md-3">
+                <CardDesc key={i} {...item} />
+              </div>
+            ))}
+          </div>
         </div>
       </main>
     </div>

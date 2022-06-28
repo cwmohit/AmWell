@@ -1,35 +1,60 @@
-import React from "react";
+import { Image, Modal } from "antd";
+import React, { useState } from "react";
 
 function CardDesc(props) {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
   return (
-    <div className="col-md-4 col-12 ">
-      <div className="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-        <div className="my-3 py-3">
-          <h2 style={{ color: "white" }} className="display-5">
-            {props?.name}
-          </h2>
-          <p className="lead">Expertise - {props?.symptoms.join(", ")}</p>
-        </div>
-        <div
-          className="bg-light shadow-sm mx-auto text-dark rounded p-3"
-          alt="doctor"
-          style={{
-            width: "80%",
-            height: "200px",
-            borderRadius: "21px 21px 0 0",
-          }}
-        >
-          <p>Email - {props?.email}</p>
-          <p>Address - {props?.address}</p>
-          <p>City - {props?.city}</p>
-          <p>State - {props?.state}</p>
-        </div>
-        <div class="d-grid gap-2 my-3">
-          <button type="button" class="btn btn-light d-block">
-            Contact - {props?.phone}
-          </button>
-        </div>
+    <div className="card p-2 py-3 text-center">
+      <div className="img mb-2">
+        {" "}
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+          width="70"
+          preview={false}
+          className="rounded-circle"
+        />{" "}
       </div>
+      <h5 className="mb-0">{props?.name}</h5>
+      <small>Expertise - {props?.symptoms.join(", ")}</small>
+      <div className="ratings mt-2">
+        {" "}
+        <i className="fa fa-star"></i> <i className="fa fa-star"></i>{" "}
+        <i className="fa fa-star"></i> <i className="fa fa-star"></i>{" "}
+      </div>
+      <div className="mt-4 apointment">
+        {" "}
+        <button
+          onClick={showModal}
+          className="btn btn-primary text-uppercase text-white"
+        >
+          Book Appointment
+        </button>{" "}
+      </div>
+      <Modal
+        title="DOCTOR APPOINTMENT"
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={null}
+      >
+        <p>EMAIL - {props?.email}</p>
+        <p>ADDRESS - {props?.address}</p>
+        <p>PINCODE - {props?.pincode}</p>
+        <p>CITY - {props?.city}</p>
+        <p>STATE - {props?.state}</p>
+        <p>PHONE - {props?.phone}</p>
+      </Modal>
     </div>
   );
 }

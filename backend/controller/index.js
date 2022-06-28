@@ -1,7 +1,7 @@
 var request = require("request-promise");
 
 const predictDiagnosis = async (req, res) => {
-  const { symptoms } = req.body;
+  const { symptoms } = req.query;
   // This variable contains the data
   // you want to send
   var data = {

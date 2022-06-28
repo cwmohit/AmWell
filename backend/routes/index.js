@@ -31,7 +31,7 @@ router.get("/symptoms", (req, res) => {
 });
 
 // get diagnosis
-router.post("/get-diagnosis", controller.predictDiagnosis);
+router.get("/get-diagnosis", controller.predictDiagnosis);
 
 // post doctor
 router.post("/post-doctor", (req, res) => {
@@ -151,13 +151,23 @@ router.get("/get-doctors", (req, res) => {
 // get doctor by symptoms
 router.post("/get-doctors", (req, res) => {
   const { symptoms } = req.body;
-  Doctor.find({ symptoms: { $in: symptoms } })
-    .then((doctors) => {
-      res.json({ data: doctors });
-    })
-    .catch((err) => {
-      res.status(500).json({ error: "Not Found" });
-    });
+  if (symptoms.length) {
+    Doctor.find({ symptoms: { $in: symptoms } })
+      .then((doctors) => {
+        res.json({ data: doctors });
+      })
+      .catch((err) => {
+        res.status(500).json({ error: "Not Found" });
+      });
+  } else {
+    Doctor.find()
+      .then((doctors) => {
+        res.json({ data: doctors });
+      })
+      .catch((err) => {
+        res.status(500).json({ error: "Not Found" });
+      });
+  }
 });
 
 module.exports = router;
