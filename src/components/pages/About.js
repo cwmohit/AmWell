@@ -6,19 +6,38 @@ function About() {
       <div className="row g-5">
         <div className="col-md-8">
           <h3 className="pb-4 mb-4 fst-italic border-bottom">
-            From the Firehose
+            WEB BASED CHAT-BOT FOR DISEASE PREDICTION USING MACHINE LEARNING
           </h3>
 
           <article className="blog-post">
-            <h2 className="blog-post-title">Sample blog post</h2>
+            <h2 className="blog-post-title">PROBLEM STATEMENT</h2>
             <p className="blog-post-meta">
-              January 1, 2021 by <a href="/">Mark</a>
+              JULY 11, 2022 by <a href="/">Radhika</a>
             </p>
 
             <p>
-              This blog post shows a few different types of content that’s
-              supported and styled with Bootstrap. Basic typography, lists,
-              tables, images, code, and more are all supported as expected.
+              It is estimated that more than 70% of people in India are prone to
+              general body diseases like viral, flu, cough, cold .etc, in every
+              2 months. Because many people don't realize that the general body
+              diseases could be symptoms to something more harmful, 25 % of the
+              population succumbs to death because of ignoring the early general
+              body symptoms. This could be a dangerous situation for the
+              population and can be are alarming. Hence identifying or
+              predicting the disease at the earliest is very important to avoid
+              any unwanted casualties. The currently available systems are the
+              systems that are either dedicated to a particular disease or are
+              in research phase for algorithms when it comes to generalized
+              disease. The purpose of this system is to provide prediction for
+              the general and more commonly occurring disease that when
+              unchecked can turn into fatal disease. The system applies data
+              mining techniques and ID3 decision tree algorithms. This system
+              will predict the most possible disease based on the given symptoms
+              and precautionary measures required to avoid the aggression of
+              disease, it will also help the doctors analyse the pattern of
+              presence of diseases in the society. In this project, the disease
+              prediction system will carry out data mining in its preliminary
+              stages, the system will be trained using machine learning and data
+              mining
             </p>
             <hr />
             <p>
@@ -28,219 +47,28 @@ function About() {
               keep the demonstration flowing, so be on the lookout for this
               exact same string of text.
             </p>
-            <h2>Blockquotes</h2>
-            <p>This is an example blockquote in action:</p>
-            <blockquote className="blockquote">
-              <p>Quoted text goes here.</p>
-            </blockquote>
+            <h2>MOTIVATION FOR THE WORK</h2>
             <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content. We'll repeat it often to
-              keep the demonstration flowing, so be on the lookout for this
-              exact same string of text.
-            </p>
-            <h3>Example lists</h3>
-            <p>
-              This is some additional paragraph placeholder content. It's a
-              slightly shorter version of the other highly repetitive body text
-              used throughout. This is an example unordered list:
-            </p>
-            <ul>
-              <li>First list item</li>
-              <li>Second list item with a longer description</li>
-              <li>Third list item to close it out</li>
-            </ul>
-            <p>And this is an ordered list:</p>
-            <ol>
-              <li>First list item</li>
-              <li>Second list item with a longer description</li>
-              <li>Third list item to close it out</li>
-            </ol>
-            <p>And this is a definiton list:</p>
-            <dl>
-              <dt>HyperText Markup Language (HTML)</dt>
-              <dd>
-                The language used to describe and define the content of a Web
-                page
-              </dd>
-              <dt>Cascading Style Sheets (CSS)</dt>
-              <dd>Used to describe the appearance of Web content</dd>
-              <dt>JavaScript (JS)</dt>
-              <dd>
-                The programming language used to build advanced Web sites and
-                applications
-              </dd>
-            </dl>
-            <h2>Inline HTML elements</h2>
-            <p>
-              HTML defines a long list of available inline tags, a complete list
-              of which can be found on the{" "}
-              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">
-                Mozilla Developer Network
-              </a>
-              .
-            </p>
-            <ul>
-              <li>
-                <strong>To bold text</strong>, use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;strong&gt;
-                </code>
-                .
-              </li>
-              <li>
-                <em>To italicize text</em>, use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;em&gt;
-                </code>
-                .
-              </li>
-              <li>
-                Abbreviations, like{" "}
-                <abbr title="HyperText Markup Langage">HTML</abbr> should use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;abbr&gt;
-                </code>
-                , with an optional{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  title
-                </code>{" "}
-                attribute for the full phrase.
-              </li>
-              <li>
-                Citations, like <cite>— Mark Otto</cite>, should use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;cite&gt;
-                </code>
-                .
-              </li>
-              <li>
-                <del>Deleted</del> text should use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;del&gt;
-                </code>{" "}
-                and <ins>inserted</ins> text should use{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;ins&gt;
-                </code>
-                .
-              </li>
-              <li>
-                Superscript <sup>text</sup> uses{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;sup&gt;
-                </code>{" "}
-                and subscript <sub>text</sub> uses{" "}
-                <code className="language-plaintext highlighter-rouge">
-                  &lt;sub&gt;
-                </code>
-                .
-              </li>
-            </ul>
-            <p>
-              Most of these elements are styled by browsers with few
-              modifications on our part.
-            </p>
-            <h2>Heading</h2>
-            <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content. We'll repeat it often to
-              keep the demonstration flowing, so be on the lookout for this
-              exact same string of text.
-            </p>
-            <h3>Sub-heading</h3>
-            <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content. We'll repeat it often to
-              keep the demonstration flowing, so be on the lookout for this
-              exact same string of text.
-            </p>
-            <pre>
-              <code>Example code block</code>
-            </pre>
-            <p>
-              This is some additional paragraph placeholder content. It's a
-              slightly shorter version of the other highly repetitive body text
-              used throughout.
-            </p>
-          </article>
-
-          <article className="blog-post">
-            <h2 className="blog-post-title">Another blog post</h2>
-            <p className="blog-post-meta">
-              December 23, 2020 by <a href="/">Jacob</a>
-            </p>
-
-            <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content. We'll repeat it often to
-              keep the demonstration flowing, so be on the lookout for this
-              exact same string of text.
-            </p>
-            <blockquote>
-              <p>
-                Longer quote goes here, maybe with some{" "}
-                <strong>emphasized text</strong> in the middle of it.
-              </p>
-            </blockquote>
-            <p>
-              This is some additional paragraph placeholder content. It has been
-              written to fill the available space and show how a longer snippet
-              of text affects the surrounding content. We'll repeat it often to
-              keep the demonstration flowing, so be on the lookout for this
-              exact same string of text.
-            </p>
-            <h3>Example table</h3>
-            <p>And don't forget about tables in these posts:</p>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Upvotes</th>
-                  <th>Downvotes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Alice</td>
-                  <td>10</td>
-                  <td>11</td>
-                </tr>
-                <tr>
-                  <td>Bob</td>
-                  <td>4</td>
-                  <td>3</td>
-                </tr>
-                <tr>
-                  <td>Charlie</td>
-                  <td>7</td>
-                  <td>9</td>
-                </tr>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td>Totals</td>
-                  <td>21</td>
-                  <td>23</td>
-                </tr>
-              </tfoot>
-            </table>
-
-            <p>
-              This is some additional paragraph placeholder content. It's a
-              slightly shorter version of the other highly repetitive body text
-              used throughout.
+              The main motivation of doing this research is to present a disease
+              prediction model for the prediction of occurrence of general
+              disease. Further, this research work is aimed towards identifying
+              the best classification algorithm for identifying the possibility
+              of disease in a patient. This work is justified by performing a
+              comparative study and analysis using three classification
+              algorithms namely Naïve Bayes, Decision Tree, and Random Forest
+              are used at different levels of evaluations. Although these are
+              commonly used machine learning algorithms, the disease prediction
+              is a vital task involving highest possible accuracy. Hence, the
+              three algorithms are evaluated at numerous levels and types of
+              evaluation strategies. This will provide researchers and medical
+              practitioners to establish a better
             </p>
           </article>
 
           <article className="blog-post">
             <h2 className="blog-post-title">New feature</h2>
             <p className="blog-post-meta">
-              December 14, 2020 by <a href="/">Chris</a>
+              JULY 01, 2022 by <a href="/">Mohit</a>
             </p>
 
             <p>
@@ -261,44 +89,26 @@ function About() {
               used throughout.
             </p>
           </article>
-
-          <nav className="blog-pagination" aria-label="Pagination">
-            <a className="btn btn-outline-primary" href="/">
-              Older
-            </a>
-            <a
-              className="btn btn-outline-secondary disabled"
-              href="/"
-              tabindex="-1"
-              aria-disabled="true"
-            >
-              Newer
-            </a>
-          </nav>
         </div>
 
         <div className="col-md-4">
           <div className="position-sticky" style={{ top: "2rem" }}>
             <div className="p-4 mb-3 bg-light rounded">
               <h4 className="fst-italic">About</h4>
-              <p className="mb-0">
-                Customize this section to tell your visitors a little bit about
-                your publication, writers, content, or something else entirely.
-                Totally up to you.
-              </p>
+              <ul>
+                <li>Mohit kandhari</li>
+                <li>Pankaj soni</li>
+                <li>Radhika Manihar</li>
+                <li>Nikhil vidhani</li>
+                <li>Prachi soni</li>
+              </ul>
             </div>
 
             <div className="p-4">
               <h4 className="fst-italic">Elsewhere</h4>
               <ol className="list-unstyled">
                 <li>
-                  <a href="/">GitHub</a>
-                </li>
-                <li>
-                  <a href="/">Twitter</a>
-                </li>
-                <li>
-                  <a href="/">Facebook</a>
+                  <a href="https://github.com/cwmohit/AmWell">GitHub</a>
                 </li>
               </ol>
             </div>
