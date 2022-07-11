@@ -41,12 +41,12 @@ function Home({ symptoms, doctors, setDoctors }) {
   return (
     <div className="container-fluid Home-page">
       <main>
-        <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-white">
+        <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-img-contain">
           <div className="col-md-5 p-lg-5 mx-auto my-5">
             <h1 className="display-4 fw-normal">
               <img className="mb-4" src={Amwell} alt="" width="100" />
             </h1>
-            <p className="lead fw-normal">
+            <p className="lead fw-bold">
               AmWell provides a general symptom assessment tool to help you
               identify the symptoms of your health condition.
             </p>
